@@ -1198,3 +1198,4 @@ endif
 -include vendor/*/build/core/config.mk
 
 include $(BUILD_SYSTEM)/dumpvar.mk
+endif
