@@ -896,6 +896,28 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Target: {}".format(target_info.fingerprint))
 
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
+
+  devilian_version = target_info.GetBuildProp("ro.modversion")
+  android_version = target_info.GetBuildProp("ro.build.version.release")
+  build_id = target_info.GetBuildProp("ro.build.id")
+  security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
+  device = target_info.GetBuildProp("ro.devilian.device")
+
+  script.Print("----------------------------------------------------------------------");
+  script.Print("________              .__.__  .__               ________    _________ ");
+  script.Print("\______ \   _______  _|__|  | |__|____    ____  \_____  \  /   _____/ ");
+  script.Print(" |    |  \_/ __ \  \/ /  |  | |  \__  \  /    \  /   |   \ \_____  \  ");
+  script.Print(" |    `   \  ___/\   /|  |  |_|  |/ __ \|   |  \/    |    \/        \ ");
+  script.Print("/_______  /\___  >\_/ |__|____/__(____  /___|  /\_______  /_______  / ");
+  script.Print("        \/     \/                     \/     \/         \/        \/  ");
+  script.Print("----------------------------------------------------------------------");
+  script.Print(" DevilianOS version: DevilianOS-%s"%(devilian_version));
+  script.Print(" Android version: %s"%(android_version));
+  script.Print(" Build id: %s"%(build_id));
+  script.Print(" Security patch: %s"%(security_patch));
+  script.Print(" Device: %s"%(device));
+  script.Print("----------------------------------------------------------------------");
+
   device_specific.FullOTA_InstallBegin()
 
   system_progress = 0.75
