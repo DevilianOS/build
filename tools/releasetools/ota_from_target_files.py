@@ -902,6 +902,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   build_id = target_info.GetBuildProp("ro.build.id")
   security_patch = target_info.GetBuildProp("ro.build.version.security_patch")
   device = target_info.GetBuildProp("ro.devilian.device")
+  edition = target_info.GetBuildProp("ro.devilian.edition")
 
   script.Print("----------------------------------------------------------------------");
   script.Print("________              .__.__  .__               ________    _________ ");
@@ -915,6 +916,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print(" Android version: %s"%(android_version));
   script.Print(" Build id: %s"%(build_id));
   script.Print(" Security patch: %s"%(security_patch));
+  script.Print(" DevilianOS Edition: %s"%(edition));
   script.Print(" Device: %s"%(device));
   script.Print("----------------------------------------------------------------------");
 
